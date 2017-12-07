@@ -28,6 +28,8 @@ public class MainJPA {
         EntityTransaction tx = em.getTransaction();
         tx.begin();
         
+//        Person developer = new Person("Imam Abdurasyid", "Programmer", "4500000");
+        
         Person staf = new Person();
         staf.setNama("Jonathan Living the Dream");
         staf.setSalary(2500000);
@@ -35,6 +37,9 @@ public class MainJPA {
         staf.setDateOfBirth(new Date());
         
         em.persist(staf);
+        
+        //Person staf = em.find(Person.class, 51); // mendapatkan 1 object
+        System.out.println("");
         
         tx.commit();
         

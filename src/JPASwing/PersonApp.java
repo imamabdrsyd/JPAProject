@@ -42,12 +42,13 @@ public class PersonApp extends javax.swing.JFrame {
     private void showPeople() {
         List<Person> people = getPeople();
         DefaultTableModel tableModel = (DefaultTableModel) peopleTable.getModel();
-        Object[] row = new Object[4];
+        Object[] row = new Object[5];
         for (Person p : people) {
             row[0] = p.getId();
             row[1] = p.getNama();
             row[2] = p.getAge();
             row[3] = p.getSalary();
+            row[4] = p.getPosition();
             
             tableModel.addRow(row);
         }
@@ -113,6 +114,8 @@ public class PersonApp extends javax.swing.JFrame {
         dobDateField = new com.toedter.calendar.JDateChooser();
         jLabel4 = new javax.swing.JLabel();
         updateButton = new javax.swing.JButton();
+        jLabel7 = new javax.swing.JLabel();
+        positionTextField = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         peopleTable = new javax.swing.JTable();
@@ -179,6 +182,8 @@ public class PersonApp extends javax.swing.JFrame {
             }
         });
 
+        jLabel7.setText("Position");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -186,26 +191,35 @@ public class PersonApp extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3)
-                    .addComponent(newButton)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel4))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(nameTextField)
-                    .addComponent(ageTextField)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel4))
+                        .addGap(11, 11, 11)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(nameTextField)
+                            .addComponent(ageTextField)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(saveButton)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(deleteButton)
-                                .addGap(10, 10, 10)
-                                .addComponent(updateButton))
-                            .addComponent(salaryTextField)
-                            .addComponent(dobDateField, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(salaryTextField)
+                                    .addComponent(dobDateField, javax.swing.GroupLayout.DEFAULT_SIZE, 203, Short.MAX_VALUE))
+                                .addGap(0, 0, Short.MAX_VALUE))))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addComponent(newButton)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(saveButton)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(deleteButton)
+                            .addGap(10, 10, 10)
+                            .addComponent(updateButton)
+                            .addGap(0, 0, Short.MAX_VALUE))
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addComponent(jLabel7)
+                            .addGap(22, 22, 22)
+                            .addComponent(positionTextField))))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -227,7 +241,11 @@ public class PersonApp extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(dobDateField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4))
-                .addGap(28, 28, 28)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel7)
+                    .addComponent(positionTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(30, 30, 30)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(saveButton)
                     .addComponent(deleteButton)
@@ -243,11 +261,11 @@ public class PersonApp extends javax.swing.JFrame {
 
             },
             new String [] {
-                "ID", "Name", "Age", "Salary"
+                "ID", "Name", "Age", "Salary", "Position"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.Integer.class, java.lang.Double.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.Integer.class, java.lang.Double.class, java.lang.String.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -260,7 +278,7 @@ public class PersonApp extends javax.swing.JFrame {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 382, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 454, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -327,6 +345,7 @@ public class PersonApp extends javax.swing.JFrame {
         nameTextField.setText("");
         ageTextField.setText("");
         salaryTextField.setText("");
+        positionTextField.setText("");
 
     }//GEN-LAST:event_newButtonActionPerformed
 
@@ -339,6 +358,7 @@ public class PersonApp extends javax.swing.JFrame {
         p.setAge(age);
         double salary = Double.parseDouble(salaryTextField.getText());
         p.setSalary(salary);
+        p.setPosition(positionTextField.getText());
         Date dob = dobDateField.getDate();
 
         em.getTransaction().begin();
@@ -406,7 +426,7 @@ public class PersonApp extends javax.swing.JFrame {
         EntityManager em = emf.createEntityManager();
         // SELECT * FROM PERSON
         String filterName = nameFilterTextField.getText();
-        Query query = em.createQuery("Select p from Person p where p.name LIKE CONCAT('%',:filterName,'%')");
+        Query query = em.createQuery("Select p from Person p where p.nama LIKE CONCAT('%',:filterName,'%')");
         query.setParameter("filterName", filterName);
         List<Person> people = query.getResultList();
         DefaultTableModel tableModel = (DefaultTableModel) peopleTable.getModel();
@@ -417,6 +437,7 @@ public class PersonApp extends javax.swing.JFrame {
             row[1] = person.getAge();
             row[2] = person.getSalary();
             row[3] = person.getId();
+            row[4] = person.getPosition();
             tableModel.addRow(row);
         }
         em.close();
@@ -475,6 +496,7 @@ public class PersonApp extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
@@ -482,6 +504,7 @@ public class PersonApp extends javax.swing.JFrame {
     private javax.swing.JTextField nameTextField;
     private javax.swing.JButton newButton;
     private javax.swing.JTable peopleTable;
+    private javax.swing.JTextField positionTextField;
     private javax.swing.JTextField salaryTextField;
     private javax.swing.JButton saveButton;
     private javax.swing.JButton updateButton;

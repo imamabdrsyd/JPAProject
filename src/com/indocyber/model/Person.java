@@ -11,6 +11,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 
 /**
@@ -20,23 +21,9 @@ import javax.persistence.Temporal;
 @Entity
 public class Person implements Serializable {
 
-    /**
-     * @return the age
-     */
-    public int getAge() {
-        return age;
-    }
-
-    /**
-     * @param age the age to set
-     */
-    public void setAge(int age) {
-        this.age = age;
-    }
-
     private static long serialVersionUID = 1L;
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private int id;
     private String nama;
     private String position;
@@ -44,6 +31,7 @@ public class Person implements Serializable {
     private double salary;
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date dateOfBirth;
+    
 
     public int getId() {
         return id;
@@ -75,7 +63,7 @@ public class Person implements Serializable {
 
     @Override
     public String toString() {
-        return "com.indocyber.model.Employee[ id=" + getId() + " ]";
+        return "com.indocyber.model.Person[ id=" + getId() + " ]";
     }
 
     /**
@@ -146,6 +134,20 @@ public class Person implements Serializable {
      */
     public void setDateOfBirth(Date dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
+    }
+    
+    /**
+     * @return the age
+     */
+    public int getAge() {
+        return age;
+    }
+
+    /**
+     * @param age the age to set
+     */
+    public void setAge(int age) {
+        this.age = age;
     }
     
 }

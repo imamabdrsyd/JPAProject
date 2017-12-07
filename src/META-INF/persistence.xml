@@ -3,6 +3,8 @@
   <persistence-unit name="JPAProjectPU" transaction-type="RESOURCE_LOCAL">
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
     <class>com.indocyber.model.Person</class>
+    <class>com.indocyber.model.Company</class>
+    <class>com.indocyber.model.Address</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:derby://localhost:1527/bc2"/>
       <property name="javax.persistence.jdbc.user" value="app"/>
