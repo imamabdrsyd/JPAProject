@@ -88,7 +88,11 @@ public class PersonApp extends javax.swing.JFrame {
         DecimalFormat df = (DecimalFormat) NumberFormat.getInstance();
         df.applyPattern("###,###.##");
         String stringSalary = df.format(person.getSalary());
-        salaryTextField.setText(stringSalary);
+        String a = stringSalary;
+        String gaji = stringSalary.replace(",", "");
+        
+        salaryTextField.setText(gaji);
+        positionTextField.setText(person.getPosition());
     }
     
     /**
@@ -144,6 +148,12 @@ public class PersonApp extends javax.swing.JFrame {
         nameTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nameTextFieldActionPerformed(evt);
+            }
+        });
+
+        salaryTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                salaryTextFieldActionPerformed(evt);
             }
         });
 
@@ -206,20 +216,19 @@ public class PersonApp extends javax.swing.JFrame {
                                     .addComponent(salaryTextField)
                                     .addComponent(dobDateField, javax.swing.GroupLayout.DEFAULT_SIZE, 203, Short.MAX_VALUE))
                                 .addGap(0, 0, Short.MAX_VALUE))))
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addComponent(newButton)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(saveButton)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(deleteButton)
-                            .addGap(10, 10, 10)
-                            .addComponent(updateButton)
-                            .addGap(0, 0, Short.MAX_VALUE))
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addComponent(jLabel7)
-                            .addGap(22, 22, 22)
-                            .addComponent(positionTextField))))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(newButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(saveButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(deleteButton)
+                        .addGap(10, 10, 10)
+                        .addComponent(updateButton)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel7)
+                        .addGap(22, 22, 22)
+                        .addComponent(positionTextField)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -442,6 +451,11 @@ public class PersonApp extends javax.swing.JFrame {
         }
         em.close();
     }//GEN-LAST:event_filterButtonActionPerformed
+
+    private void salaryTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salaryTextFieldActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_salaryTextFieldActionPerformed
 
     /**
      * @param args the command line arguments
