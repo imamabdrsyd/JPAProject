@@ -29,11 +29,15 @@ public class PersonApp extends javax.swing.JFrame {
 
     EntityManagerFactory emf;
     Person selectedPerson;
+    LoginForm loginForm;
 
     /**
      * Creates new form JPASwing
      */
     public PersonApp() {
+        loginForm = new LoginForm(this, true);
+        loginForm.setVisible(true);
+        
         initComponents();
         emf = Persistence.createEntityManagerFactory("JPAProjectPU");
         showPeople();
